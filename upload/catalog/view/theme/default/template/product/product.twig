@@ -133,7 +133,7 @@
             <ul class="list-unstyled">
               {% if not special %}
                 <li>
-                  <h2>{{ price }}</h2>
+                  <h2 id="priceget">{{ price }}</h2>
                 </li>
               {% else %}
                 <li><span style="text-decoration: line-through;">{{ price }}</span></li>
@@ -160,6 +160,7 @@
           <div id="product">{% if options %}
               <hr>
               <h3>{{ text_option }}</h3>
+           
               {% for option in options %}
                 {% if option.type == 'select' %}
                   <div class="form-group{% if option.required %} required {% endif %}">
@@ -169,6 +170,7 @@
                         <option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
                           {% if option_value.price %}
                             ({{ option_value.price_prefix }}{{ option_value.price }})
+                               <h1  id="prc" style="display:none">{{ option_value.price }}</h1>
                           {% endif %} </option>
                       {% endfor %}
                     </select>
@@ -273,8 +275,28 @@
                 <div class="help-block" id="recurring-description"></div>
               </div>
             {% endif %}
+
             <div class="form-group">
-              <label class="col-form-label" for="input-quantity">{{ entry_qty }}</label> <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control"/> <input type="hidden" name="product_id" value="{{ product_id }}"/>
+            <select id="size" name="siz" >
+            <option value="1">None</option>
+            <option value="12">12x12 inch</option>
+            <option value="20"> 20x20 inch</option>
+                        </select>
+                       <label>
+                       Height <small>/sqft</small>
+<input type="text" id="H" required>
+                       </label> 
+
+<label>
+Width <small>/sqft</small>
+<input type="text" id="W" required>
+                       
+                       </label> 
+            </div>
+            <input id="calc" type="button" onclick="calcpri()" value="Count">
+            <div class="form-group">
+              <label class="col-form-label"  for="input-quantity" disabled>{{ entry_qty }}</label> <input type="text"  name="quantity" value="{{ minimum }}" size="2" id="input-quantity" disabled class="form-control"/> <input type="hidden" name="product_id" value="{{ product_id }}"/>
+                 <label class="col-form-label"  for="input-price" disabled>Price</label> <input  type="text" name="price" value="" size="2" id="input-price" disabled class="form-control"/> <input type="hidden" name="product_id" value="{{ product_id }}"/>
               <br/>
               <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
             </div>
@@ -380,8 +402,74 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function() {
 		}
 	});
 });
-//--></script>
-<script type="text/javascript"><!--
+</script>
+
+
+<script type="text/javascript">
+var Height=0,Width=0;
+ var $x=0;
+$('#H').on('input',function(){
+Height=$('#H').val();
+console.log(Height);
+
+} )
+$('#W').on('input',function(){
+
+  Width=$('#W').val();
+  console.log(Width);
+
+} )
+
+$('#size').on('change',function()
+{
+ 
+if($('#size').val()==0)
+{
+  console.log("None");
+
+}
+else{
+  $x=$('#size').val();
+  console.log($x);
+  
+}
+
+});
+function calcpri()
+{
+  var quantity=0;
+if($x==0 && Height==0 && Width==0)
+{
+  console.log("Values No Got");
+}
+else
+{
+   console.log("Values  Got");
+   console.log($x);
+var temp=$x/12*$x/12;
+console.log(temp);
+
+quantity=(Height*Width)/temp;
+
+console.log(quantity);
+$('#input-quantity').attr('value',quantity);
+$('#input-price').attr('value',quantity);
+
+
+var xwe={{option_value.price}};
+console.log(xwe);
+
+}
+
+$('#calc').on('click',function()
+{
+console.log("button clicked");
+calcpri();
+
+
+});
+
+}
 $('#button-cart').on('click', function() {
 	$.ajax({
 		url: 'index.php?route=checkout/cart/add',

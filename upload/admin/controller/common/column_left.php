@@ -161,15 +161,15 @@ class ControllerCommonColumnLeft extends Controller {
                 );
             }
 
-			if ($marketplace) {
-				$data['menus'][] = array(
-					'id'       => 'menu-extension',
-					'icon'	   => 'fa-puzzle-piece',
-					'name'	   => $this->language->get('text_extension'),
-					'href'     => '',
-					'children' => $marketplace
-				);
-			}
+//			if ($marketplace) {
+//				$data['menus'][] = array(
+//					'id'       => 'menu-extension',
+//					'icon'	   => 'fa-puzzle-piece',
+//					'name'	   => $this->language->get('text_extension'),
+//					'href'     => '',
+//					'children' => $marketplace
+//				);
+//			}
 
             // Design
             $design = array();
@@ -729,3 +729,4 @@ class ControllerCommonColumnLeft extends Controller {
         }
     }
 }
+?>
