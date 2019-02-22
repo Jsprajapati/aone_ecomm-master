@@ -85,19 +85,19 @@
 <header>
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-lg-4">
+      <div class="col-4">
         <div id="logo">
           {% if logo %}
-            <a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-fluid"/></a>
+            <a href="{{ home }}"><img src="admin/view/image/logo.png" class="img-fluid" title="{{ name }}" alt="{{ name }}" class="img-fluid"/></a>
           {% else %}
-            <h1><a href="{{ home }}">aone</a></h1>
+          <a href="{{ home }}"><img src="admin/view/image/logo.png" class="img-fluid" title="{{ name }}" alt="{{ name }}" class="img-fluid"/></a>
           {% endif %}
         </div>
       </div>
-      <div class="col-5">
+      <div class="col">
       <div class="search" id="search">{{ search }}</div>
       </div>
-            <div class="col-3 ">{{ cart }}</div>
+            <div class="col-4">{{ cart }}</div>
     </div>
   </div>
 </header>

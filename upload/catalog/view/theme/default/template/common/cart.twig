@@ -1,5 +1,5 @@
 <div id="cart">
-  <button type="button" data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="btn btn-inverse btn-block btn-lg dropdown-toggle"><i class="fas fa-shopping-cart"></i> <span id="cart-total">{{ text_items }}</span></button>
+  <button type="button"  data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="btn btn-danger btn-block btn-lg dropdown-toggle" style="margin-top:10px;background-color:#9C27B0;"><i class="fas fa-shopping-cart"></i> <span id="cart-total">{{ text_items }}</span></button>
 
   <ul class="dropdown-menu dropdown-menu-right">
     {% if products or vouchers %}

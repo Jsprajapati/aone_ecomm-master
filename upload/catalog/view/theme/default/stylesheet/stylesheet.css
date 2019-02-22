@@ -57,11 +57,13 @@ a:hover {
 
 legend {
     font-size: 20px;
-    padding: 10px 0px 10px 5px;
-    margin-bottom: 20px;
-    border-left: 2px solid #823762;
+    padding-bottom: 10px;
+    /* padding: 10px 0px 10px 0px; */
+    /* margin-bottom: 20px; */
+    /* border-left: 2px solid #823762;
     border-top: 2px solid #823762;
-    box-shadow: -2px -2px #A6469D;
+    box-shadow: -2px -2px #A6469D; */
+    border-bottom: 2px solid #388e3c;
 }
 
 label {
@@ -308,6 +310,8 @@ div.required .col-form-label:before {
     font-weight: 700;
     line-height: 40px;
     color: #fff;
+    /* margin: 5px; */
+    
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 #menu .btn-navbar {
@@ -362,6 +366,7 @@ div.required .col-form-label:before {
         margin-left: 0 !important;
         padding-bottom: 10px;
         background-color: rgba(0, 0, 0, 0.1);
+        z-index: 1;
     }
     
     #menu .dropdown-inner {
@@ -554,7 +559,8 @@ footer h5 {
 .btn-danger {
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+    /* background-image: linear-gradient(to bottom, #ee5f5b, #bd362f); */
+    
     background-repeat: repeat-x;
     border-color: #bd362f #bd362f #802420;
 }
